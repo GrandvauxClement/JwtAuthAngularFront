@@ -1,0 +1,58 @@
+<ng-container *ngIf="isLoading">
+  Chargement en cours
+</ng-container>
+
+<ng-container *ngIf="!isLoading">
+  <div class="container mt-5">
+    <h1>{{ articles.length }} ordinateur(s) en stock</h1>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Modèle</th>
+        <th scope="col">Marque</th>
+        <th scope="col">Type</th>
+        <th scope="col">Catégorie</th>
+        <th scope="col">Prix d'achat</th>
+        <th scope="col">Prix de vente</th>
+        <th scope="col">Marge</th>
+        <th scope="col">Entrée dans stock</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="linearticle" *ngFor="let article of articles">
+        <th scope="row">{{ article.id }}</th>
+        <td>{{ article.titre }}</td>
+        <td>{{ article.image }}</td>
+        <td>{{ article.type }}</td>
+        <td>{{ article.descrpition }}</td>
+        <td>{{ article.autheur }} €</td>
+        <td>{{ article.dateAjout.date|date: "d/MM/y" }}</td>
+        <td>
+         <!-- <a class="testDelete" (click)="openModal(template)">
+            <img src="/assets/img/delete.png">
+          </a>-->
+          <!--<ng-template #template>
+            <div class="modal-body text-center">
+              <p>Êtes-vous sûr de vouloir supprimer cet ordinateur?</p>
+              <button type="button" class="btn btn-default" (click)= "confirmDeletearticle(article.id)" >Oui</button>
+              <button type="button" class="btn btn-primary" (click)="declineDeletearticle()">Non</button>
+            </div>
+          </ng-template>-->
+         <!-- <a [routerLink]="['/article/edit', article.id]">
+            <img  src="/assets/img/edit.png">
+          </a>
+          <a [routerLink]="['/article', article.id]">
+            <img  src="/assets/img/detail.png">
+          </a>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+   <!-- <button type="button" id="addarticleLink" class="btn text-white my-2 my-lg-0" [routerLink]="['/article/add']">Ajouter un ordinateur</button>-->
+  </div>
+</ng-container>
+
+
