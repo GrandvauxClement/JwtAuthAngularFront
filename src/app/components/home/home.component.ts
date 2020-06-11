@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import {Articles} from '../../models/articles';
+import {ArticlesService} from "../../services/articles.service";
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,11 @@ export class HomeComponent implements OnInit {
   articles: Articles[];
   isLoading: boolean;
 
-  constructor(private userService: UserService) { }
+  constructor(private articlesService: ArticlesService) { }
 
   ngOnInit() {
     this.isLoading = true;
-    this.userService.getArticles().subscribe(
+    this.articlesService.getAll().subscribe(
       data => {
         this.articles = data['hydra:member'];
         this.isLoading = false;

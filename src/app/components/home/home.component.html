@@ -4,19 +4,17 @@
 
 <ng-container *ngIf="!isLoading">
   <div class="container mt-5">
-    <h1>{{ articles.length }} ordinateur(s) en stock</h1>
+    <h1>{{ articles.length }} articles(s) en stock</h1>
     <table class="table">
       <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Modèle</th>
-        <th scope="col">Marque</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Image</th>
         <th scope="col">Type</th>
-        <th scope="col">Catégorie</th>
-        <th scope="col">Prix d'achat</th>
-        <th scope="col">Prix de vente</th>
-        <th scope="col">Marge</th>
-        <th scope="col">Entrée dans stock</th>
+        <th scope="col">Description</th>
+        <th scope="col">Auteur</th>
+        <th scope="col">Date d'ajout</th>
         <th scope="col">Actions</th>
       </tr>
       </thead>
@@ -28,7 +26,7 @@
         <td>{{ article.type }}</td>
         <td>{{ article.descrpition }}</td>
         <td>{{ article.autheur }} €</td>
-        <td>{{ article.dateAjout.date|date: "d/MM/y" }}</td>
+        <td>{{ article.dateAjout|date: "d/MM/y" }}</td>
         <td>
          <!-- <a class="testDelete" (click)="openModal(template)">
             <img src="/assets/img/delete.png">

@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import {AuthenticatorGuardService} from './guards/authenticator.guard';
 import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
+import {authInterceptorProviders} from './_helpers/authenticator.interceptor'
 
 export function getToken() {
   return localStorage.getItem('auth-token');
@@ -35,7 +36,8 @@ export function getToken() {
       }})
   ],
   providers: [
-    AuthenticatorGuardService
+    AuthenticatorGuardService,
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

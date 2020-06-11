@@ -9,7 +9,6 @@ export class AuthenticatorGuardService implements CanActivate {
 
   canActivate(): boolean {
 
-    alert(this.auth.isAuthenticated());
     if (!this.auth.isAuthenticated()) {
       this.router.navigate(['login']);
       return false;

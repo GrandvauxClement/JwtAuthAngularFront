@@ -29,12 +29,6 @@ export class UserService {
     return this.http.get(API_URL, { responseType: 'text' });
   }
 
-  getArticles(): Observable<any> {
-    return this.http.get<Articles[]>(API_URL).pipe(
-     retry(1),
-      catchError(this.handleError)
-    );
-  }
 
   getUserBoard(): Observable<any> {
     return this.http.get(API_URL + 'user', { responseType: 'text' });
